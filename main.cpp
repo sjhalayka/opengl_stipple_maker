@@ -21,18 +21,20 @@ int main(void)
 		return false;
 	}
 
+	const size_t num_channels = 4;
+
 	size_t count = 0;
 
 	for (size_t i = 0; i < 32 * 32 ; i += 8)
 	{
-		size_t index0 = 4 * (i + 0);
-		size_t index1 = 4 * (i + 1);
-		size_t index2 = 4 * (i + 2);
-		size_t index3 = 4 * (i + 3);
-		size_t index4 = 4 * (i + 4);
-		size_t index5 = 4 * (i + 4);
-		size_t index6 = 4 * (i + 6);
-		size_t index7 = 4 * (i + 7);
+		size_t index0 = num_channels * (i + 0);
+		size_t index1 = num_channels * (i + 1);
+		size_t index2 = num_channels * (i + 2);
+		size_t index3 = num_channels * (i + 3);
+		size_t index4 = num_channels * (i + 4);
+		size_t index5 = num_channels * (i + 4);
+		size_t index6 = num_channels * (i + 6);
+		size_t index7 = num_channels * (i + 7);
 		
 		unsigned char c = 0;
 
@@ -62,7 +64,7 @@ int main(void)
 
 		count++;
 
-		if (count < 32*32/8)
+		if (count < 32 * 32 / 8)
 			cout << "0x" << (hex) << int(c) << ',';
 		else
 			cout << "0x" << (hex) << int(c);
