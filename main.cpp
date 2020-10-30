@@ -67,7 +67,7 @@ int main(void)
 		else
 			cout << "0x" << (hex) << int(c);
 
-		if(count != 0 && count % 4 == 0)
+		if(count % 4 == 0)
 			cout << endl;
 	}
 
