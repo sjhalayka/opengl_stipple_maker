@@ -21,6 +21,8 @@ int main(void)
 		return false;
 	}
 
+	size_t count = 0;
+
 	for (size_t i = 0; i < 32 * 32 ; i += 8)
 	{
 		size_t index0 = 4 * (i + 0);
@@ -58,7 +60,15 @@ int main(void)
 		if (input.Pixels[index7] == 255)
 			c = c + 1;
 
-		cout << "0x" << (hex) << int(c) << ',';
+		count++;
+
+		if (count < 32*32/8)
+			cout << "0x" << (hex) << int(c) << ',';
+		else
+			cout << "0x" << (hex) << int(c);
+
+		if(count != 0 && count % 4 == 0)
+			cout << endl;
 	}
 
 	return 0;
